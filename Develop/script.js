@@ -4,36 +4,103 @@ const addEmployeesBtn = document.querySelector('#add-employees-btn');
 // Collect employee data
 const collectEmployees = function() {
   // TODO: Get user input to create and return an array of employee objects
-  // create an empty object for employees
-  const employeeList = {};
+  // create an empty array for employees
+  const employeesArray = [];
 
-  // create an empty employee array  
-  const empArray = [];
-  
-  const firstName = window.prompt("Enter the employee's first name:");
-  const lastName = window.prompt("Enter the employee's last name:");
-  const salary = window.prompt("Enter the employee's salary (no commas):");
+  // create an empty employee object (for each employee added)  
+  const employeeData = {
+    firstName: '',
+    lastName: '',
+    salary: 0
+  };
 
-  //click add employee button (event listener)
-  addEmployeesBtn.addEventListener('click')
+  //array of invalid names (optional)
+  const invalidNames = [null, undefined, ' '];
 
-  // if(addEmployeesBtn) {
+  //add variable for while loop
+  let createEmployees = true;
+ 
+
+  // while loop for adding employees
+  while(createEmployees) {
+    //enter employee's first name
+    const firstName = window.prompt("Enter the employee's first name:");
+
+    // If user presses Cancel, end function
+    if(!firstName) {
+      return;
+    }
+
+    // if user enters an invalid name from the related array
+    if(invalidNames.includes(firstName)) {
+      window.alert("Please enter a valid first name.");
+    }
+
+    // if name is valid, assign it to the object property firstName
+    else {
+      employeeData.firstName = firstName;
+      //we can set the property value, but how to we get the value to show in the table?
+
+
+      // enter employee's last name
+      const lastName = window.prompt("Enter the employee's last name:");
+
+      // If user presses Cancel, end function
+      if(!lastName) {
+      return;
+      }
+
+      // if user enters an invalid name from the related array
+      if(invalidNames.includes(lastName)) {
+        window.alert("Please enter a valid last name.");      
+      }
+
+      // if name is valid, assign it to the object property lastName
+      else {
+        employeeData.lastName = lastName;
+
+        // enter employee's salary
+        const salary = window.prompt("Enter the employee's salary (no commas):");
+
+        // If user presses Cancel, end function
+        if(!salary) {
+          return;
+        }
+
+        // if user enters an invalid data type or has invalid values from array
+        if(typeof Number(salary) !== "number" || invalidNames.includes(salary)) {
+          window.alert("Please enter a numeric value.");           
+        }
+        // if salary is valid, assign it to the object property salary
+        else {
+          employeeData.salary = salary;
+
+          // Ask user if they want to create more employees
+          // createEmployees = window.confirm("Would you like to add more employees?");
+        }
+        
+      }
+
+      employeesArray.push(employeeData);
     
-  //   if( (xxx == null) || (xxx == undefined) ) {
-  //     window.alert("Invalid employee name. Try again.");
 
-  //   }
-  // }
+      // Ask user if they want to create more employees
+      createEmployees = window.confirm("Would you like to add more employees?");
+      if(!createEmployees) {
+        displayEmployees();
+      }
 
-  //ask for first name
-  //ask for last name
-  //ask for salary
+    }
+
+  }
+  
 
 }
 
 // Display the average salary
 const displayAverageSalary = function(employeesArray) {
   // TODO: Calculate and display the average salary
+  
 }
 
 // Select a random employee
