@@ -105,8 +105,9 @@ const displayAverageSalary = function(employeesArray) {
 
   for (let i = 0; i < employeesArray.salary.length; i++) {
     sum = sum + employeesArray.salary[i];
-    average = sum/employeesArray.salary.length;
+    
   }
+  average = sum/employeesArray.salary.length;
   return average;
 
 }
@@ -114,6 +115,7 @@ const displayAverageSalary = function(employeesArray) {
 // Select a random employee
 const getRandomEmployee = function(employeesArray) {
   // TODO: Select and display a random employee
+  
 }
 
 /*
