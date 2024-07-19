@@ -29,4 +29,4 @@ https://git.bootcampcontent.com/University-of-California---Berkeley/UCB-VIRT-FSF
 ## License
 
 MIT License (located in root directory):
-https://github.com/qbres333/02-Portfolio.git
+https://github.com/qbres333/03c-Employee-Tracker
