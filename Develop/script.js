@@ -13,21 +13,36 @@ const collectEmployees = function() {
    
   // create an empty employee object (for each employee added)  
   function getEmployeeInfo() {  
+      
     const firstName = prompt('What is your first name?');
-    const lastName = prompt('What is your last name?');
-    const salary = prompt('What is your salary?');
 
+    //if user cancels, close the pop-up window
+    if(!firstName) {
+      return;
+    }
+
+    const lastName = prompt('What is your last name?');
+    //if user cancels, close the pop-up window
+    if(!lastName) {
+      return;
+    }
+
+    const salary = prompt('What is your salary?');
+    //if user cancels, close the pop-up window
+    if(!salary) {
+      return;
+    }
+    
+    while(isNaN(Number(salary))) {
+      salary = prompt('Please enter a valid number (no commas)');
+    }
+   
     const employee = {
       firstName,
       lastName,
       salary
     };
-
-    // const salary = parseFloat(prompt('What is your salary?'));
-    while(isNaN(Number(salary))) {
-      salary = prompt('Please enter a valid number (no commas)');
-    }
-   
+    
     employeesArray.push(employee);
 
   }
@@ -37,6 +52,9 @@ const collectEmployees = function() {
     getEmployeeInfo();
     addMoreEmps = confirm('Would you like to add another employee?');
     
+    if(!addMoreEmps) {
+      return;
+    }
   }
 }
 
