@@ -6,96 +6,42 @@ const collectEmployees = function() {
   // TODO: Get user input to create and return an array of employee objects
   // create an empty array for employees
   const employeesArray = [];
-
-  // create an empty employee object (for each employee added)  
-  const employeeData = {
-    firstName: '',
-    lastName: '',
-    salary: 0
-  };
-
-  //array of invalid names (optional)
-  const invalidNames = [null, undefined, ' '];
+  let addMoreEmps = confirm('Would you like to add another employee?');
 
   //add variable for while loop
   let createEmployees = true;
  
-
-  // while loop for adding employees
-  while(createEmployees) {
-    //enter employee's first name
-    const firstName = window.prompt("Enter the employee's first name:");
-
-    // If user presses Cancel, end function
-    if(!firstName) {
-      return;
-    }
-
-    // if user enters an invalid name from the related array
-    if(invalidNames.includes(firstName)) {
-      window.alert("Please enter a valid first name.");
-    }
-
-    // if name is valid, assign it to the object property firstName
-    else {
-      employeeData.firstName = firstName;
-      //we can set the property value, but how to we get the value to show in the table?
-
-
-      // enter employee's last name
-      const lastName = window.prompt("Enter the employee's last name:");
-
-      // If user presses Cancel, end function
-      if(!lastName) {
-      return;
-      }
-
-      // if user enters an invalid name from the related array
-      if(invalidNames.includes(lastName)) {
-        window.alert("Please enter a valid last name.");      
-      }
-
-      // if name is valid, assign it to the object property lastName
-      else {
-        employeeData.lastName = lastName;
-
-        // enter employee's salary
-        const salary = window.prompt("Enter the employee's salary (no commas):");
-
-        // If user presses Cancel, end function
-        if(!salary) {
-          return;
-        }
-
-        // if user enters an invalid data type or has invalid values from array
-        if(typeof Number(salary) !== "number" || invalidNames.includes(salary)) {
-          window.alert("Please enter a numeric value.");           
-        }
-        // if salary is valid, assign it to the object property salary
-        else {
-          employeeData.salary = salary;
-
-          // Ask user if they want to create more employees
-          // createEmployees = window.confirm("Would you like to add more employees?");
-        }
-        
-      }
-
-      employeesArray.push(employeeData);
-    
-
-      // Ask user if they want to create more employees
-      createEmployees = window.confirm("Would you like to add more employees?");
-      if(!createEmployees) {
-        displayEmployees();
-      }
-
-    }
-
-  }
   
+  // create an empty employee object (for each employee added)  
+  
+  function getEmployeeInfo() {
 
-}
+  
+    const firstName = prompt('What is your first name?');
+    const lastName = prompt('What is your last name?');
+    const salary = prompt('What is your salary?');
+
+  // const salary = parseFloat(prompt('What is your salary?'));
+    while(isNaN(Number(salary) {
+      // prompt...
+      salary = prompt('Please enter a valid number (no commas)')
+    }
+
+    const employee = {
+        firstName,
+        lastName,
+        salary
+    };
+
+    employeesArray.push(employee);
+  }
+
+  // ask user if they want to create more employees
+  while(createEmployees) {
+    getEmployeeInfo();
+    addMoreEmps = confirm('Would you like to add another employee?');
+    
+  }
 
 // Display the average salary
 const displayAverageSalary = function(employeesArray) {
@@ -115,7 +61,9 @@ const displayAverageSalary = function(employeesArray) {
 // Select a random employee
 const getRandomEmployee = function(employeesArray) {
   // TODO: Select and display a random employee
-  
+  const randomIndex = Math.floor(Math.random() * employeesArray.length);
+  return employeesArray[randomIndex];
+
 }
 
 /*
