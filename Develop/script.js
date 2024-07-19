@@ -6,34 +6,30 @@ const collectEmployees = function() {
   // TODO: Get user input to create and return an array of employee objects
   // create an empty array for employees
   const employeesArray = [];
-  let addMoreEmps = confirm('Would you like to add another employee?');
+  // let addMoreEmps = confirm('Would you like to add another employee?');
 
   //add variable for while loop
   let createEmployees = true;
- 
-  
+   
   // create an empty employee object (for each employee added)  
-  
-  function getEmployeeInfo() {
-
-  
+  function getEmployeeInfo() {  
     const firstName = prompt('What is your first name?');
     const lastName = prompt('What is your last name?');
     const salary = prompt('What is your salary?');
 
-  // const salary = parseFloat(prompt('What is your salary?'));
-    while(isNaN(Number(salary) {
-      // prompt...
-      salary = prompt('Please enter a valid number (no commas)')
-    }
-
     const employee = {
-        firstName,
-        lastName,
-        salary
+      firstName,
+      lastName,
+      salary
     };
 
+    // const salary = parseFloat(prompt('What is your salary?'));
+    while(isNaN(Number(salary))) {
+      salary = prompt('Please enter a valid number (no commas)');
+    }
+   
     employeesArray.push(employee);
+
   }
 
   // ask user if they want to create more employees
