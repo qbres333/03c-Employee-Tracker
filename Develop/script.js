@@ -6,8 +6,7 @@ const collectEmployees = function() {
   // TODO: Get user input to create and return an array of employee objects
   // create an empty array for employees
   const employeesArray = [];
-  // let addMoreEmps = confirm('Would you like to add another employee?');
-
+  
   //add variable for while loop
   let createEmployees = true;
    
@@ -42,7 +41,7 @@ const collectEmployees = function() {
       lastName,
       salary
     };
-    
+
     employeesArray.push(employee);
 
   }
