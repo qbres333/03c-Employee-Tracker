@@ -38,6 +38,7 @@ const collectEmployees = function() {
     addMoreEmps = confirm('Would you like to add another employee?');
     
   }
+}
 
 // Display the average salary
 const displayAverageSalary = function(employeesArray) {
